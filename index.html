@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NOIRÉ — Contemporary Clothing</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    background:#f7f5f1;
+    color:#171717;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    width:100%;
+    display:block;
+    object-fit:cover;
+}
+
+/* NAVBAR */
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(247,245,241,.94);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #dedbd5;
+}
+
+.nav{
+    max-width:1200px;
+    margin:auto;
+    padding:18px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-family:"Playfair Display",serif;
+    font-size:28px;
+    letter-spacing:3px;
+    font-weight:700;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+    font-size:14px;
+    font-weight:500;
+}
+
+.nav-links a:hover{
+    opacity:.55;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    max-width:1200px;
+    margin:auto;
+    padding:120px 25px 70px;
+    gap:60px;
+}
+
+.hero-text span{
+    font-size:12px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#777;
+}
+
+.hero h1{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(55px,7vw,90px);
+    line-height:1;
+    margin:20px 0;
+    font-weight:600;
+}
+
+.hero p{
+    max-width:470px;
+    color:#666;
+    font-size:16px;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    background:#171717;
+    color:white;
+    padding:14px 28px;
+    font-size:13px;
+    letter-spacing:1px;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#444;
+}
+
+.hero-image{
+    height:650px;
+    overflow:hidden;
+}
+
+.hero-image img{
+    height:100%;
+}
+
+/* SECTION */
+
+.section{
+    max-width:1200px;
+    margin:auto;
+    padding:100px 25px;
+}
+
+.section-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:45px;
+}
+
+.section-heading h2{
+    font-family:"Playfair Display",serif;
+    font-size:48px;
+    font-weight:500;
+}
+
+.section-heading p{
+    color:#777;
+    max-width:380px;
+}
+
+/* PRODUCTS */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.product{
+    background:white;
+    padding-bottom:22px;
+}
+
+.product-image{
+    height:430px;
+    overflow:hidden;
+}
+
+.product-image img{
+    height:100%;
+    transition:.5s;
+}
+
+.product:hover img{
+    transform:scale(1.04);
+}
+
+.product-info{
+    padding:18px 20px 0;
+}
+
+.product-info h3{
+    font-family:"Playfair Display",serif;
+    font-size:22px;
+    font-weight:500;
+}
+
+.product-info p{
+    color:#777;
+    font-size:13px;
+    margin:5px 0;
+}
+
+.price{
+    font-size:14px;
+    font-weight:600;
+}
+
+/* STORY */
+
+.story{
+    background:#1b1b1b;
+    color:white;
+}
+
+.story-inner{
+    max-width:1200px;
+    margin:auto;
+    padding:100px 25px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+}
+
+.story-image{
+    height:500px;
+}
+
+.story-image img{
+    height:100%;
+}
+
+.story-content span{
+    color:#aaa;
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.story-content h2{
+    font-family:"Playfair Display",serif;
+    font-size:50px;
+    line-height:1.1;
+    margin:18px 0 25px;
+}
+
+.story-content p{
+    color:#bdbdbd;
+    margin-bottom:18px;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+}
+
+.feature{
+    padding:45px 30px;
+    border-right:1px solid #ddd;
+}
+
+.feature:last-child{
+    border-right:none;
+}
+
+.feature h3{
+    font-family:"Playfair Display",serif;
+    font-size:23px;
+    margin-bottom:10px;
+}
+
+.feature p{
+    color:#777;
+    font-size:14px;
+}
+
+/* CTA */
+
+.cta{
+    text-align:center;
+    padding:120px 25px;
+}
+
+.cta span{
+    font-size:12px;
+    letter-spacing:4px;
+    color:#777;
+}
+
+.cta h2{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(45px,6vw,75px);
+    line-height:1.05;
+    margin:20px auto 30px;
+    max-width:800px;
+}
+
+/* CONTACT */
+
+.contact{
+    background:#ebe8e2;
+}
+
+.contact-inner{
+    max-width:1200px;
+    margin:auto;
+    padding:90px 25px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+}
+
+.contact h2{
+    font-family:"Playfair Display",serif;
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.contact p{
+    color:#666;
+}
+
+.details{
+    display:grid;
+    gap:25px;
+}
+
+.detail h4{
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:5px;
+}
+
+.detail p{
+    color:#555;
+}
+
+/* FOOTER */
+
+footer{
+    background:#171717;
+    color:white;
+    padding:30px 25px;
+}
+
+.footer-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.footer-logo{
+    font-family:"Playfair Display",serif;
+    letter-spacing:3px;
+}
+
+footer p{
+    color:#999;
+    font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+        padding-top:110px;
+        gap:40px;
+    }
+
+    .hero-image{
+        height:520px;
+    }
+
+    .section-heading{
+        display:block;
+    }
+
+    .section-heading h2{
+        margin-bottom:15px;
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .product-image{
+        height:480px;
+    }
+
+    .story-inner{
+        grid-template-columns:1fr;
+        gap:45px;
+    }
+
+    .story-image{
+        height:430px;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .feature{
+        border-right:none;
+        border-bottom:1px solid #ddd;
+    }
+
+    .feature:last-child{
+        border-bottom:none;
+    }
+
+    .contact-inner{
+        grid-template-columns:1fr;
+        gap:45px;
+    }
+
+    .footer-inner{
+        display:block;
+    }
+
+    footer p{
+        margin-top:10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav class="nav">
+        <a href="#" class="logo">NOIRÉ</a>
+
+        <div class="nav-links">
+            <a href="#collection">Collection</a>
+            <a href="#story">Our Story</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-text">
+        <span>Contemporary Clothing Studio</span>
+
+        <h1>Wear Your<br>Own Story.</h1>
+
+        <p>
+            Thoughtfully designed clothing for people who value
+            timeless style, quality fabrics and effortless confidence.
+        </p>
+
+        <a href="#collection" class="btn">EXPLORE COLLECTION</a>
+    </div>
+
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1000&q=85"
+             alt="NOIRÉ fashion collection">
+    </div>
+
+</section>
+
+<!-- COLLECTION -->
+
+<section class="section" id="collection">
+
+    <div class="section-heading">
+        <h2>Latest Collection</h2>
+
+        <p>
+            A refined selection of everyday essentials,
+            statement pieces and modern wardrobe classics.
+        </p>
+    </div>
+
+    <div class="products">
+
+        <div class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=85"
+                     alt="Classic blazer">
+            </div>
+
+            <div class="product-info">
+                <h3>Tailored Blazer</h3>
+                <p>Structured fit · Premium fabric</p>
+                <div class="price">₹4,999</div>
+            </div>
+        </div>
+
+
+        <div class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=85"
+                     alt="Contemporary fashion">
+            </div>
+
+            <div class="product-info">
+                <h3>Everyday Edit</h3>
+                <p>Minimal design · Relaxed fit</p>
+                <div class="price">₹2,499</div>
+            </div>
+        </div>
+
+
+        <div class="product">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=85"
+                     alt="Modern clothing">
+            </div>
+
+            <div class="product-info">
+                <h3>Modern Essentials</h3>
+                <p>Premium cotton · Everyday wear</p>
+                <div class="price">₹1,999</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- STORY -->
+
+<section class="story" id="story">
+
+    <div class="story-inner">
+
+        <div class="story-image">
+            <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1000&q=85"
+                 alt="NOIRÉ clothing store">
+        </div>
+
+        <div class="story-content">
+
+            <span>Our Philosophy</span>
+
+            <h2>Style should feel effortless.</h2>
+
+            <p>
+                NOIRÉ began with a simple idea: create clothing
+                that looks refined without feeling complicated.
+            </p>
+
+            <p>
+                From fabric selection to the final stitch, every
+                piece is designed with comfort, quality and modern
+                character in mind.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="section">
+
+    <div class="features">
+
+        <div class="feature">
+            <h3>Premium Materials</h3>
+            <p>
+                Carefully selected fabrics designed for comfort,
+                durability and everyday wear.
+            </p>
+        </div>
+
+        <div class="feature">
+            <h3>Thoughtful Design</h3>
+            <p>
+                Clean silhouettes and timeless details that work
+                beyond a single season.
+            </p>
+        </div>
+
+        <div class="feature">
+            <h3>Personal Service</h3>
+            <p>
+                Visit our store or contact our team for help with
+                sizes, products and styling.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <span>VISIT OUR STORE</span>
+
+    <h2>Find something that feels like you.</h2>
+
+    <a href="#contact" class="btn">GET DIRECTIONS</a>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <div class="contact-inner">
+
+        <div>
+            <h2>Visit NOIRÉ</h2>
+
+            <p>
+                Discover our latest collection in-store and
+                experience the fabrics, fits and details in person.
+            </p>
+        </div>
+
+        <div class="details">
+
+            <div class="detail">
+                <h4>Address</h4>
+                <p>24 Mall Road, Solan, Himachal Pradesh</p>
+            </div>
+
+            <div class="detail">
+                <h4>Phone</h4>
+                <p>+91 98765 43210</p>
+            </div>
+
+            <div class="detail">
+                <h4>Opening Hours</h4>
+                <p>Monday – Sunday · 10:00 AM – 8:30 PM</p>
+            </div>
+
+            <div class="detail">
+                <h4>Email</h4>
+                <p>hello@noirefashion.in</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div class="footer-logo">NOIRÉ</div>
+
+        <p>© 2026 NOIRÉ Clothing Studio. All rights reserved.</p>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
